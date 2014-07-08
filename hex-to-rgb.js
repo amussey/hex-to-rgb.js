@@ -1,22 +1,37 @@
 
 // HEX TO RGB
-function hexToRgb(hex) {
+function hexToRgb(hex, alpha) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    var toString = function () {
+        if (this.alpha == undefined) {
+            return "rgb(" + this.r + ", " + this.g + ", " + this.b + ")";
+        }
+        if (this.alpha > 1) {
+            this.alpha = 1;
+        } else if (this.alpha < 0) {
+            this.alpha = 0;
+        }
+        return "rgb(" + this.r + ", " + this.g + ", " + this.b + ", " + this.alpha + ")";
+    } 
+    if (alpha == undefined) {
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16),
+            toString: toString
+        } : null;
+    }
+    if (alpha > 1) {
+        alpha = 1;
+    } else if (alpha < 0) {
+        alpha = 0;
+    }
     return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
         b: parseInt(result[3], 16),
-        toString: function (alpha) {
-            if (alpha == undefined) {
-                return "rgb(" + this.r + ", " + this.g + ", " + this.b + ")";
-            }
-            if (alpha > 1) {
-                alpha = 1;
-            } else if (alpha < 0) {
-                alpha = 0;
-            }
-            return "rgb(" + this.r + ", " + this.g + ", " + this.b + ", " + alpha + ")";
-        }
+        alpha: alpha,
+        toString: toString
     } : null;
 }
 
