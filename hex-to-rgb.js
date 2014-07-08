@@ -1,3 +1,14 @@
+//
+// hex-to-rgb.js -- Functions for Hex/RGB conversion
+//
+// Copyright (c) 2014 Andrew Mussey, amussey.com
+//
+// Redistributable under a BSD license.
+// See LICENSE for more information.
+//
+// For usage examples, see https://github.com/amussey/hex-to-rgb/.
+//
+
 
 // HEX TO RGB
 function hexToRgb(hex, alpha) {
@@ -36,14 +47,14 @@ function hexToRgb(hex, alpha) {
 }
 
 // RGB TO HEX
-/*
-This function expects a string formed like
-
-    rgba(255, 255, 0, 0.25)
-
-This function is designed to be forgiving of rgba or rgb.
-It will throw away the alpha layer.
-*/
+//
+// This function expects a string formed like
+//
+//    rgba(255, 255, 0, 0.25)
+//
+// This function is designed to be forgiving of rgba or rgb.
+// It will throw away the alpha layer.
+//
 function rgbToHex(rgb, g, b) {
     if (g == undefined || b == undefined) {
         if (typeof rgb == "string") {

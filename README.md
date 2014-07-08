@@ -1,6 +1,6 @@
-# hex-to-rgb.js: Hex to RGB Conversion Functions
+# Hex to RGB Conversion Functions
 
-This is a small set of functions that can be used for converting CSS strings back and forth from hex to RGB/RGBA.
+This is a small set of Javascript functions that can be used for converting CSS strings back and forth from hex and RGB/RGBA.
 
 
 ## Usage
