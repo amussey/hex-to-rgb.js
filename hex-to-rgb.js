@@ -36,30 +36,29 @@ function hexToRgb(hex, alpha) {
 }
 
 // RGB TO HEX
-function rgbToHex(r, g, b) {
-    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-}
-
 /*
-This function expects something in the range of
+This function expects a string formed like
 
     rgba(255, 255, 0, 0.25)
 
 This function is designed to be forgiving of rgba or rgb.
 It will throw away the alpha layer.
 */
-function rgbStringToHex(rgb) {
-    rgbStringToHex(rgb);
-}
-
-function rgbaStringToHex(rgb) {
-    var result = /^rgb[a]?\(([\d]+)[ \n]*,[ \n]*([\d]+)[ \n]*,[ \n]*([\d]+)[ \n]*,?[ \n]*([.\d]+)?[ \n]*\)$/i.exec(rgb);
-    console.log(result);
-    return rgbToHex(parseInt(result[1]), parseInt(result[2]), parseInt(result[3]));
-}
-
-
-function componentToHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
+function rgbToHex(rgb, g, b) {
+    if (g == undefined || b == undefined) {
+        if (typeof rgb == "string") {
+            var result = /^rgb[a]?\(([\d]+)[ \n]*,[ \n]*([\d]+)[ \n]*,[ \n]*([\d]+)[ \n]*,?[ \n]*([.\d]+)?[ \n]*\)$/i.exec(rgb);
+            return rgbToHex(parseInt(result[1]), parseInt(result[2]), parseInt(result[3]));
+        }
+        if (rgb.r == undefined || rgb.g == undefined || rgb.b == undefined) {
+            return null;
+        }
+        return rgbToHex(rgb.r, rgb.g, rgb.b);
+    }
+    var r = rgb;
+    function componentToHex(c) {
+        var hex = c.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    }
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
