@@ -5,26 +5,20 @@ function hexToRgb(hex) {
     return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
+        b: parseInt(result[3], 16),
+        toString: function (alpha) {
+            if (alpha == undefined) {
+                return "rgb(" + this.r + ", " + this.g + ", " + this.b + ")";
+            }
+            if (alpha > 1) {
+                alpha = 1;
+            } else if (alpha < 0) {
+                alpha = 0;
+            }
+            return "rgb(" + this.r + ", " + this.g + ", " + this.b + ", " + alpha + ")";
+        }
     } : null;
 }
-
-function hexToRgbString(hex) {
-    var result = hexToRgb(hex);
-    return "rgb(" + result.r + ", " + result.g + ", " + result.b + ")";
-}
-
-function hexToRgbaString(hex, alpha) {
-    if (alpha > 1) {
-        alpha = 1;
-    } else if (alpha < 0) {
-        alpha = 0;
-    }
-    var result = hexToRgb(hex);
-    return "rgba(" + result.r + ", " + result.g + ", " + result.b + ", " + alpha + ")";
-}
-
-
 
 // RGB TO HEX
 function rgbToHex(r, g, b) {
