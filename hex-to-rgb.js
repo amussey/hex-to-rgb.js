@@ -22,7 +22,7 @@ function hexToRgb(hex, alpha) {
         } else if (this.alpha < 0) {
             this.alpha = 0;
         }
-        return "rgb(" + this.r + ", " + this.g + ", " + this.b + ", " + this.alpha + ")";
+        return "rgba(" + this.r + ", " + this.g + ", " + this.b + ", " + this.alpha + ")";
     } 
     if (alpha == undefined) {
         return result ? {
