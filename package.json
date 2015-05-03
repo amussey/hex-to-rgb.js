@@ -1,0 +1,30 @@
+{
+  "name": "hex-to-rgb.js",
+  "version": "1.1.0",
+  "description": "A simple library for converting CSS strings for hex to RGB/RGBA.",
+  "main": "hex-to-rgb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "min": "uglifyjs hex-to-rgb.js -o hex-to-rgb.min.js -m -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amussey/hex-to-rgb.js.git"
+  },
+  "keywords": [
+    "hex",
+    "rgb",
+    "rgba",
+    "css",
+    "conversion"
+  ],
+  "author": "Andrew Mussey",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/amussey/hex-to-rgb.js/issues"
+  },
+  "homepage": "https://github.com/amussey/hex-to-rgb.js",
+  "devDependencies": {
+    "uglify-js": "^2.4.20"
+  }
+}
