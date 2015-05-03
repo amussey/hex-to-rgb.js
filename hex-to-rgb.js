@@ -1,7 +1,7 @@
 //
 // hex-to-rgb.js -- Functions for Hex/RGB conversion
 //
-// Copyright (c) 2014 Andrew Mussey, amussey.com
+// Copyright (c) 2015 Andrew Mussey, amussey.com
 //
 // Redistributable under a BSD license.
 // See LICENSE for more information.
